@@ -6,8 +6,8 @@ import pyautogui
 import keyboard
 import time
 
-GRID_SIZE = CONFIG["grid_size"]
-TRANSPARENCY = CONFIG["transparency"]
+GRID_SIZE = 26
+TRANSPARENCY = .5
 BG = "black"
 FG = "gray"
 
