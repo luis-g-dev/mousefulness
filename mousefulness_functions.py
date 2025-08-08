@@ -1,12 +1,8 @@
-
-from mouseless import mouseless_highlighter as highlighter
-from mouseless.mouseless_config import CONFIG
-
 import screen_brightness_control as sbc
 import pyautogui
 import screeninfo
 
-GRID_SIZE = CONFIG["grid_size"]
+GRID_SIZE = 26
 
 def brightness_control(is_plus):
     #monitor_idx= get_cur_monitor_idx()
@@ -78,32 +74,8 @@ def mouseless_click(k, k2):
         cx = (col + 0.5) * cw
         cy = (row + 0.5) * ch
 
-        # Click position based on the toggled highlight direction
-        current_toggled_highlight_direction = highlighter.get_highlight_dir()
-        if current_toggled_highlight_direction == 'left':
-            cx = (col + 0.25) * cw
-        elif current_toggled_highlight_direction == 'right':
-            cx = (col + 0.75) * cw
-        elif current_toggled_highlight_direction == 'up':
-            cy = (row + 0.25) * ch
-        elif current_toggled_highlight_direction == 'down':
-            cy = (row + 0.75) * ch
-        elif current_toggled_highlight_direction == 'up-left':
-            cx = (col + 0.25) * cw
-            cy = (row + 0.25) * ch
-        elif current_toggled_highlight_direction == 'up-right':
-            cx = (col + 0.75) * cw
-            cy = (row + 0.25) * ch
-        elif current_toggled_highlight_direction == 'down-left':
-            cx = (col + 0.25) * cw
-            cy = (row + 0.75) * ch
-        elif current_toggled_highlight_direction == 'down-right':
-            cx = (col + 0.75) * cw
-            cy = (row + 0.75) * ch
-
         abs_cx = monitor_x + cx
         abs_cy = monitor_y + cy
 
-        #toggle_visibility()
         pyautogui.moveTo(abs_cx, abs_cy)
         pyautogui.click(abs_cx, abs_cy)
